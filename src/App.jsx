@@ -16,10 +16,8 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+          <h1>BMI Calculator</h1>
+          <p>Calculate your body mass index based on your height and weight.</p>
         </div>
         <button
           type="button"
