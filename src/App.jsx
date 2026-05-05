@@ -47,6 +47,11 @@ function App() {
               type="number"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
+              required
+              min="1"
+              step="0.1"
+              placeholder="70"
+              inputMode="decimal"
             />
           </label>
 
@@ -56,6 +61,11 @@ function App() {
               type="number"
               value={height}
               onChange={(e) => setHeight(e.target.value)}
+              required
+              min="1"
+              step="0.1"
+              placeholder="175"
+              inputMode="decimal"
             />
           </label>
 
