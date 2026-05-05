@@ -12,7 +12,10 @@ function App() {
     const weightValue = Number(weight)
     const heightValue = Number(height)
 
-    
+    if (weightValue <= 0 || heightValue <= 0) {
+      setBmi(null)
+      return
+    }
 
     const heightInMeters = heightValue / 100
     const calculatedBmi = weightValue / (heightInMeters * heightInMeters)
