@@ -1,27 +1,38 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+
+function getBmiCategory(bmiValue) {
+  if (bmiValue < 18.5) return "Underweight";
+  if (bmiValue < 25) return "Normal weight";
+  if (bmiValue < 30) return "Overweight";
+  return "Obesity";
+}
 
 function App() {
-  const [weight, setWeight] = useState('')
-  const [height, setHeight] = useState('')
-  const [bmi, setBmi] = useState(null)
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
+  const [bmi, setBmi] = useState(null);
+  const [category, setCategory] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const weightValue = Number(weight)
-    const heightValue = Number(height)
+    const weightValue = Number(weight);
+    const heightValue = Number(height);
 
     if (weightValue <= 0 || heightValue <= 0) {
-      setBmi(null)
-      return
+      setBmi(null);
+      setCategory("");
+      return;
     }
 
-    const heightInMeters = heightValue / 100
-    const calculatedBmi = weightValue / (heightInMeters * heightInMeters)
+    const heightInMeters = heightValue / 100;
+    const calculatedBmi = weightValue / (heightInMeters * heightInMeters);
 
-    setBmi(calculatedBmi.toFixed(1))
-  }
+    setBmi(calculatedBmi.toFixed(1));
+
+    setCategory(getBmiCategory(calculatedBmi));
+  };
 
   return (
     <main>
@@ -50,15 +61,15 @@ function App() {
 
           <button type="submit">Calculate BMI</button>
         </form>
-        {
-          bmi && (
-            <section>
-              <h2>Your BMI is {bmi}</h2>
-            </section>  
+        {bmi && (
+          <section>
+            <h2>Your BMI is {bmi}</h2>
+            <p>Category: {category}</p>
+          </section>
         )}
       </section>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
