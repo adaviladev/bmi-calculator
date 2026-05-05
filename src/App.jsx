@@ -4,10 +4,20 @@ import './App.css'
 function App() {
   const [weight, setWeight] = useState('')
   const [height, setHeight] = useState('')
+  const [bmi, setBmi] = useState(null)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Calculate BMI logic here
+
+    const weightValue = Number(weight)
+    const heightValue = Number(height)
+
+    
+
+    const heightInMeters = heightValue / 100
+    const calculatedBmi = weightValue / (heightInMeters * heightInMeters)
+
+    setBmi(calculatedBmi.toFixed(1))
   }
 
   return (
@@ -37,6 +47,12 @@ function App() {
 
           <button type="submit">Calculate BMI</button>
         </form>
+        {
+          bmi && (
+            <section>
+              <h2>Your BMI is {bmi}</h2>
+            </section>  
+        )}
       </section>
     </main>
   )
