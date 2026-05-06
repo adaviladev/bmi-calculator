@@ -29,9 +29,10 @@ function App() {
     const heightInMeters = heightValue / 100;
     const calculatedBmi = weightValue / (heightInMeters * heightInMeters);
 
-    setBmi(calculatedBmi.toFixed(1));
+    const roundedBmi = Number(calculatedBmi.toFixed(1));
 
-    setCategory(getBmiCategory(calculatedBmi));
+    setBmi(roundedBmi);
+    setCategory(getBmiCategory(roundedBmi));
   };
 
   const handleReset = () => {
