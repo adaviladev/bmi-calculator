@@ -34,6 +34,13 @@ function App() {
     setCategory(getBmiCategory(calculatedBmi));
   };
 
+  const handleReset = () => {
+    setWeight("");
+    setHeight("");
+    setBmi(null);
+    setCategory("");
+  };
+
   return (
     <main>
       <section>
@@ -70,6 +77,9 @@ function App() {
           </label>
 
           <button type="submit">Calculate BMI</button>
+          <button type="button" onClick={handleReset}>
+            Reset
+          </button>
         </form>
         {bmi && (
           <section>
