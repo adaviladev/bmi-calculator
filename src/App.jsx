@@ -82,7 +82,7 @@ function App() {
           </button>
         </form>
         {bmi && (
-          <section>
+          <section className="result">
             <h2>Your BMI is {bmi}</h2>
             <p>Category: {category}</p>
           </section>
